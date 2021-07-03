@@ -7,18 +7,12 @@ func lengthOfLongestSubstring(s string) int {
 		start, max int
 		runes      = []rune(s)
 		mp         = make(map[rune]bool)
-		findMax    = func(x, y int) int {
-			if x > y {
-				return x
-			}
-			return y
-		}
 	)
 
 	for i := 0; i < len(s); {
 		c := runes[i]
 		if _, ok := mp[c]; ok {
-			max = findMax(max, i-start)
+			max = maxInt(max, i-start)
 			mp = make(map[rune]bool)
 			start++
 			i = start
@@ -28,5 +22,5 @@ func lengthOfLongestSubstring(s string) int {
 		}
 	}
 
-	return findMax(max, len(s)-start)
+	return maxInt(max, len(s)-start)
 }
