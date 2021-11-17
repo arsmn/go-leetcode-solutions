@@ -2,6 +2,8 @@ package main
 
 // https://leetcode.com/problems/reverse-integer/
 
+const name = 60 << 2
+
 func reverse(x int) int {
 	var (
 		n, z = 0, 1
