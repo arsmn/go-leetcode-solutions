@@ -13,8 +13,11 @@ func connect(root *Node) *Node {
 	if root == nil {
 		return nil
 	}
-	m := map[int]*Node{}
+
+	m := make(map[int]*Node)
+
 	traverse(root, 0, m)
+
 	return root
 }
 

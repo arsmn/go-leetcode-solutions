@@ -4,15 +4,15 @@ package leetcodesolutions
 
 func lengthOfLongestSubstring(s string) int {
 	var (
-		start, cmax int
-		runes       = []rune(s)
-		mp          = make(map[rune]bool)
+		start, max int
+		runes      = []rune(s)
+		mp         = make(map[rune]bool)
 	)
 
 	for i := 0; i < len(s); {
 		c := runes[i]
 		if _, ok := mp[c]; ok {
-			cmax = max(cmax, i-start)
+			max = maxInt(max, i-start)
 			mp = make(map[rune]bool)
 			start++
 			i = start
@@ -22,5 +22,5 @@ func lengthOfLongestSubstring(s string) int {
 		}
 	}
 
-	return max(cmax, len(s)-start)
+	return maxInt(max, len(s)-start)
 }
