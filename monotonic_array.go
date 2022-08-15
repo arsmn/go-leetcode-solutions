@@ -1,5 +1,7 @@
 package leetcodesolutions
 
+// https://leetcode.com/problems/monotonic-array/
+
 func isMonotonic(nums []int) bool {
 	var status int
 
