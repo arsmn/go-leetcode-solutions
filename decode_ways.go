@@ -1,26 +1,29 @@
 package leetcodesolutions
 
+import "strconv"
+
 // https://leetcode.com/problems/decode-ways/
 
 func numDecodings(s string) int {
-	var (
-		count = make([]int, len(s)+1)
-	)
+	dp := make([]int, len(s)+1)
+	dp[0] = 1
 
-	count[0] = 1
-	count[1] = 1
+	if s[0] != '0' {
+		dp[1] = 1
+	}
 
-	for i := 2; i <= len(s); i++ {
-		count[i] = 0
+	for i := 2; i < len(dp); i++ {
+		oneD, _ := strconv.Atoi(s[i-1 : i])
+		twoD, _ := strconv.Atoi(s[i-2 : i])
 
-		if s[i-1] > '0' {
-			count[i] = count[i-1]
+		if oneD >= 1 {
+			dp[i] += dp[i-1]
 		}
 
-		if s[i-2] == '1' || (s[i-2] == '2' && s[i-1] < '7') {
-			count[i] += count[i-2]
+		if twoD >= 10 && twoD <= 26 {
+			dp[i] += dp[i-2]
 		}
 	}
 
-	return count[len(s)]
+	return dp[len(s)]
 }
