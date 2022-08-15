@@ -1,4 +1,4 @@
-package main
+package leetcodesolutions
 
 func isMonotonic(nums []int) bool {
 	var status int

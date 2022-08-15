@@ -1,13 +1,15 @@
-package main
+package leetcodesolutions
 
-func maxInt(x, y int) int {
+import "golang.org/x/exp/constraints"
+
+func max[T constraints.Ordered](x, y T) T {
 	if x > y {
 		return x
 	}
 	return y
 }
 
-func minInt(x, y int) int {
+func min[T constraints.Ordered](x, y T) T {
 	if x < y {
 		return x
 	}

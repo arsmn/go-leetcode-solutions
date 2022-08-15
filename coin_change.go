@@ -1,4 +1,4 @@
-package main
+package leetcodesolutions
 
 import "math"
 
@@ -11,7 +11,7 @@ func coinChange(coins []int, amount int) int {
 		dp[i] = math.MaxInt32
 		for _, c := range coins {
 			if i-c >= 0 {
-				dp[i] = minInt(dp[i-c]+1, dp[i])
+				dp[i] = min(dp[i-c]+1, dp[i])
 			}
 		}
 	}

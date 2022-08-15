@@ -1,4 +1,4 @@
-package main
+package leetcodesolutions
 
 import "strings"
 

@@ -1,18 +1,18 @@
-package main
+package leetcodesolutions
 
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 func lengthOfLongestSubstring(s string) int {
 	var (
-		start, max int
-		runes      = []rune(s)
-		mp         = make(map[rune]bool)
+		start, cmax int
+		runes       = []rune(s)
+		mp          = make(map[rune]bool)
 	)
 
 	for i := 0; i < len(s); {
 		c := runes[i]
 		if _, ok := mp[c]; ok {
-			max = maxInt(max, i-start)
+			cmax = max(cmax, i-start)
 			mp = make(map[rune]bool)
 			start++
 			i = start
@@ -22,5 +22,5 @@ func lengthOfLongestSubstring(s string) int {
 		}
 	}
 
-	return maxInt(max, len(s)-start)
+	return max(cmax, len(s)-start)
 }
