@@ -1,3 +1,3 @@
 module github.com/arsmn/go-leetcode-solutions
 
-go 1.17
+go 1.22.0
